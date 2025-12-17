@@ -25,7 +25,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),  # Para login DRF
     
     # Frontend
-    path('', TemplateView.as_view(template_name='index.html'), name='home'),
+    path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('con_token/', TemplateView.as_view(template_name='con_token.html'), name='con_token'),
     path('guardar/', TemplateView.as_view(template_name='guardar.html'), name='guardar'),
 ]
