@@ -128,8 +128,18 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
-
-STATIC_URL = 'static/'
+# Configuración CORS
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+# Configuración de archivos estáticos
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'myApp' / 'static',  # Busca en myApp/static
+]
+if DEBUG:
+    STATICFILES_DIRS = [
+        BASE_DIR / 'myApp' / 'static',
+    ]
+else:
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
