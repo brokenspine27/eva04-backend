@@ -16,8 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
+    path('api-auth/', include('rest_framework.urls')),  # Para login DRF
+    
+    # Frontend
+    path('', TemplateView.as_view(template_name='index.html'), name='home'),
+    path('con_token/', TemplateView.as_view(template_name='con_token.html'), name='con_token'),
+    path('guardar/', TemplateView.as_view(template_name='guardar.html'), name='guardar'),
 ]
+
